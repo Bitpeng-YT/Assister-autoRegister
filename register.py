@@ -199,5 +199,10 @@ class AssisterRegister:
         self.log('系统', '所有私钥已处理，等待下一个周期...', 'success')
 
 if __name__ == "__main__":
-    claimer = AssisterRegister()
-    claimer.main()
+    import time
+    import asyncio
+
+    register = AssisterRegister()
+    while True:
+        asyncio.run(register.main())
+        time.sleep(21600)  # 每6小时运行一次
